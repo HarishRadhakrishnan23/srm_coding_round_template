@@ -52,9 +52,8 @@ def first_stable_character(s):
         None
     """
     # TODO: Implement your solution here
-    def first_stable_character(s):
     n = len(s)
-    i = 0
+    i, j = 0, 0
     while i < n:
         j = i
         while j < n and s[j] == s[i]:

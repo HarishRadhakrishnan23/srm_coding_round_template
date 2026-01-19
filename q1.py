@@ -52,6 +52,19 @@ def first_stable_character(s):
         None
     """
     # TODO: Implement your solution here
+    def first_stable_character(s):
+    n = len(s)
+    i = 0
+    while i < n:
+        j = i
+        while j < n and s[j] == s[i]:
+            j += 1
+        count = j - i
+        if count >= 2:
+          if s[i] not in s[:i] and s[i] not in s[j:]:
+            return s[i]
+            i = j
+            return None
     pass
 
 

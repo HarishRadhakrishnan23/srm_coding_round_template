@@ -74,7 +74,7 @@ def compressed_stack_length(lst):
             stk.append(num)
     return len(stk)
 
-    pass
+    compressed_stack_length(lst)
 
 
 if __name__ == "__main__":

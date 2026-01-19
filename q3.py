@@ -48,6 +48,26 @@ Note: The window is "within 10 seconds", meaning timestamps[j] - timestamps[i] <
 
 
 def find_overloaded_users(events):
+    from collections import defaultdict
+
+    us_ev = defaultdict(list)
+    for user_id, timestamp in events:
+        us_ev[user_id].append(timestamp)
+
+    overloaded = set()
+    for user_id, times in us_ev.items():
+        times.sort()
+        left = 0
+
+        for right in range(len(times)):
+            while times[right] - times[left] >= 10:
+                left += 1
+
+            if right - left + 1 >= 3:
+                overloaded.add(user_id)
+                break
+
+    return overloaded
     """
     Identify users with 3+ events within any 10-second window.
 

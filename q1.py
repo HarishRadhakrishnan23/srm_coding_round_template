@@ -64,7 +64,7 @@ def first_stable_character(s):
             return s[i]
             i = j
             return None
-    pass
+    first_stable_character(s)
 
 
 if __name__ == "__main__":
